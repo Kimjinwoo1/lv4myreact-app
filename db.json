@@ -1,22 +1,10 @@
 {
   "todos": [
     {
-      "writer": "안녕하세요",
-      "title": "안녕하세요",
-      "contents": "안녕하세요",
-      "id": 3
-    },
-    {
       "writer": "작성자",
-      "title": "제목",
-      "contents": "내용",
-      "id": 4
-    },
-    {
-      "writer": "누구인가",
-      "title": "제목인가",
-      "contents": "내용인가",
-      "id": 5
+      "title": "제목 ",
+      "contents": "내용일시다",
+      "id": 1
     }
   ]
 }

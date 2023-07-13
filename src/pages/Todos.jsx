@@ -31,25 +31,27 @@ function Todos() {
   }, []);
 
   // 삭제될때 alert
-  const onRemove = () => {
-    if (window.confirm("정말 삭제합니까?")) {
-      alert("삭제되었습니다.");
-    } else {
-      alert("취소합니다.");
-    }
-  };
+  // const onRemove = () => {
+  //   if (window.confirm("정말 삭제합니까?")) {
+  //     alert("삭제되었습니다.");
+  //   } else {
+  //     // alert("취소합니다.");
+  //     return;
+  //   }
+  // };
 
   // 삭제시
   const deleteBtnHandler = async (id) => {
-    axios.delete(`http://localhost:4000/todos/${id}`);
-    onRemove();
-    setTodos(
-      todos.filter((item) => {
-        return item.id !== id;
-      })
-    );
-    navigate("/works");
+    if (window.confirm("정말 삭제합니까?")) {
+      axios.delete(`http://localhost:4000/todos/${id}`);
+      setTodos(
+        todos.filter((item) => {
+          return item.id !== id;
+        })
+      );
+    }
   };
+
   return (
     <div>
       <Header />
@@ -65,7 +67,7 @@ function Todos() {
             >
               <TitleDiv onClick={(e) => e.stopPropagation()}>
                 <h4>{item.title}</h4>
-                <button onClick={() => deleteBtnHandler(item.id)}>삭제</button>
+                <div onClick={() => deleteBtnHandler(item.id)}>삭제</div>
               </TitleDiv>
               <WriterDiv>작성자 : {item.writer}</WriterDiv>
             </TodoDiv>
